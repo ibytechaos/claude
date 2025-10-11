@@ -46,7 +46,6 @@
   ],
   "engines": {
     "claudeCode": ">=2.0.0",
-    "node": ">=20.0.0"
   },
   "mcpServers": {
     "claude-flow": {

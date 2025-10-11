@@ -68,8 +68,7 @@
         "84.8% SWE-Bench solve rate"
       ],
       "requirements": {
-        "claudeCode": ">=2.0.0",
-        "node": ">=20.0.0"
+        "claudeCode": ">=2.0.0"
       },
       "mcpServers": {
         "claude-flow": {
