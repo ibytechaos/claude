@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "claude-flow": {
+      "command": "orchestrator",
+      "args": ["mcp", "start"],
+      "description": "Core Claude Flow MCP server for swarm coordination, agent management, and task orchestration (40+ tools)",
+      "optional": false
+    },
+    "ruv-swarm": {
+      "command": "ruv-swarm",
+      "args": ["mcp", "start"],
+      "description": "Enhanced swarm coordination with WASM acceleration (2.8-4.4x speed improvement)",
+      "optional": true
+    }
+  }
+}

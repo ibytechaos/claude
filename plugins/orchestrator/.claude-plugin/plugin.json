@@ -14,5 +14,6 @@
     ],
     "commands": "./commands/",
     "agents": "./agents/",
-    "hooks": "./hooks/"
+    "hooks": "./hooks/",
+    "mcpServers": "./mcpServers/"
   }
