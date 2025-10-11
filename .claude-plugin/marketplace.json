@@ -1,32 +1,18 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude",
+  "description": "ibytechaos claude code plugins",
   "owner": {
     "name": "Claude Code Commands Community",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "metadata": {
-    "description": "claude marketplace for Claude Code commands and plugins",
-    "version": "1.0.0",
-    "homepage": "https://githunb.com/ibytechaos"
-  },
+  "version": "1.0.1",
   "plugins": [
     {
       "name": "orchestrator",
       "source": "./plugins/orchestrator/",
-      "description": "Orchestrator plugin for Claude Code",
-      "version": "1.0.0",
-      "author": {
-        "name": "Anonymous"
-      },
-      "category": "development",
-      "homepage": "https://githunb.com/ibytechaos/claude",
-      "keywords": [
-        "claude-flow",
-        "claude-orchestrator",
-        "claude-code",
-        "claude-commands",
-        "claude-plugins"
-      ]
+      "description": "orchestrator for claude flow",
+      "category": "development"
     }
   ]
 }
