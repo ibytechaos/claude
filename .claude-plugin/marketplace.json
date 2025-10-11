@@ -12,7 +12,7 @@
   "plugins": [
     {
       "name": "orchestrator",
-      "source": "./plugins/orchestrator",
+      "source": "./plugins/orchestrator/",
       "description": "Orchestrator plugin for Claude Code",
       "version": "1.0.0",
       "author": {
