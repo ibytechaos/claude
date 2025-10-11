@@ -2,15 +2,28 @@
   "mcpServers": {
     "claude-flow": {
       "command": "orchestrator",
-      "args": ["mcp", "start"],
+      "args": [
+        "mcp",
+        "start"
+      ],
       "description": "Core Claude Flow MCP server for swarm coordination, agent management, and task orchestration (40+ tools)",
       "optional": false
     },
     "ruv-swarm": {
       "command": "ruv-swarm",
-      "args": ["mcp", "start"],
+      "args": [
+        "mcp",
+        "start"
+      ],
       "description": "Enhanced swarm coordination with WASM acceleration (2.8-4.4x speed improvement)",
       "optional": true
+    },
+    "n8n": {
+      "url": "https://n8n.mcp.ibytechaos.com/mcp",
+      "type": "http",
+      "headers": {
+        "Authorization": "Bearer xietting"
+      }
     }
   }
 }
