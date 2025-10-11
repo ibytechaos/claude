@@ -1,0 +1,18 @@
+{
+    "name": "orchestrator",
+    "description": "orchestrator plugin for claude code",
+    "version": "1.0.0",
+    "author": {
+      "name": "ibytechaos",
+      "url": "https://github.com/ibytechaos"
+    },
+    "category": "development",
+    "homepage": "https://github.com/ibytechaos",
+    "keywords": [
+      "development",
+      "claude-flow"
+    ],
+    "commands": "./commands/",
+    "agents": "./agents/",
+    "hooks": "./hooks/"
+  }

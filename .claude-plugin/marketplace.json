@@ -1,95 +1,32 @@
 {
-  "name": "claude-marketplace",
-  "owner": {
-    "name": "rUv",
-    "email": "ruv@ruv.net"
-  },
-  "metadata": {
-    "description": "Enterprise AI agent orchestration marketplace for Claude Code",
-    "version": "2.5.0",
-    "homepage": "https://github.com/ibytechaos/claude",
-    "repository": "https://github.com/ibytechaos/claude"
-  },
-  "plugins": [
-    {
-      "name": "claude-flow",
-      "source": "./",
-      "description": "Enterprise AI agent orchestration plugin with 150+ commands, 74+ specialized agents, SPARC methodology, swarm coordination, GitHub integration, and neural training capabilities",
-      "version": "2.5.0",
-      "author": {
-        "name": "rUv",
-        "email": "ruv@ruv.net"
-      },
-      "homepage": "https://github.com/ibytechaos/claude",
-      "repository": "https://github.com/ibytechaos/claude",
-      "bugs": {
-        "url": "https://github.com/ibytechaos/claude/issues"
-      },
-      "license": "MIT",
-      "keywords": [
-        "ai-agents",
-        "swarm-intelligence",
-        "orchestration",
-        "sparc-methodology",
-        "github-automation",
-        "neural-training",
-        "mcp-integration",
-        "enterprise",
-        "workflow-automation",
-        "multi-agent",
-        "coordination",
-        "tdd",
-        "code-review",
-        "performance-optimization"
-      ],
-      "category": "development",
-      "tags": [
-        "productivity",
-        "automation",
-        "ai",
-        "agents",
-        "swarm",
-        "coordination",
-        "sparc",
-        "github",
-        "neural-network",
-        "enterprise"
-      ],
-      "features": [
-        "150+ slash commands across 19 categories",
-        "74+ specialized AI agents",
-        "Multi-agent swarm coordination (Hierarchical, Mesh, Ring, Star)",
-        "SPARC methodology integration (18 development modes)",
-        "GitHub automation (PR management, code review, releases)",
-        "Neural training with WASM acceleration (2.8-4.4x speed)",
-        "Cross-session memory persistence",
-        "Real-time performance monitoring",
-        "110+ MCP tools across 3 servers",
-        "84.8% SWE-Bench solve rate"
-      ],
-      "requirements": {
-        "claudeCode": ">=2.0.0"
-      },
-      "mcpServers": {
-        "claude-flow": {
-          "command": "claude-flow",
-          "args": ["mcp", "start"],
-          "description": "Core Claude Flow MCP server for swarm coordination (40+ tools)",
-          "optional": false
+    "name": "claude-code-marketplace",
+    "owner": {
+      "name": "Claude Code Commands Community",
+      "email": "ibytechaos.ai@gmail.com"
+    },
+    "metadata": {
+      "description": "claude marketplace for Claude Code commands and plugins",
+      "version": "1.0.0",
+      "homepage": "https://githunb.com/ibytechaos"
+    },
+    "plugins": [
+      {
+        "name": "orchestrator",
+        "source": "./plugins/orchestrator",
+        "description": "Orchestrator plugin for Claude Code",
+        "version": "1.0.0",
+        "author": {
+          "name": "Anonymous"
         },
-        "ruv-swarm": {
-          "command": "npx",
-          "args": ["ruv-swarm", "mcp", "start"],
-          "description": "Enhanced swarm coordination with WASM acceleration",
-          "optional": true
-        },
-        "flow-nexus": {
-          "command": "npx",
-          "args": ["flow-nexus@latest", "mcp", "start"],
-          "description": "Cloud-based orchestration platform (70+ tools)",
-          "optional": true
-        }
+        "category": "development",
+        "homepage": "https://githunb.com/ibytechaos/claude",
+        "keywords": [
+          "claude-flow",
+          "claude-orchestrator",
+          "claude-code",
+          "claude-commands",
+          "claude-plugins"
+        ]
       }
-    }
-  ]
-}
+    ]
+  }
