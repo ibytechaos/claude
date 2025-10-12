@@ -18,6 +18,13 @@
       "description": "Enhanced swarm coordination with WASM acceleration (2.8-4.4x speed improvement)",
       "optional": true
     },
+    "context7": {
+      "command": "context7-mcp",
+      "args": [
+        "--api-key",
+        "ctx7sk-5c7da0d3-0905-4f6d-9052-50b18a91cfcd"
+      ]
+    },
     "n8n": {
       "url": "https://n8n.mcp.ibytechaos.com/mcp",
       "type": "http",
