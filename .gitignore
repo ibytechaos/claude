@@ -12,6 +12,11 @@ hive-mind-prompt-*.txt
 
 # Removed Windows wrapper files per user request
 hive-mind-prompt-*.txt
+.swarm
+
+
+# Removed Windows wrapper files per user request
+hive-mind-prompt-*.txt
 
 
 # Removed Windows wrapper files per user request
