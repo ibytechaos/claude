@@ -31,6 +31,10 @@
       "headers": {
         "Authorization": "Bearer xietting"
       }
+    },
+    "chrome-devtools": {
+      "command": "chrome-devtools-mcp",
+      "args": []
     }
   }
 }
