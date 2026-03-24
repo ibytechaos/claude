@@ -6,12 +6,12 @@
     "name": "Claude Code Commands Community",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "version": "1.0.1",
+  "version": "2.0.0",
   "plugins": [
     {
-      "name": "orchestrator",
-      "source": "./plugins/orchestrator/",
-      "description": "orchestrator for claude flow",
+      "name": "chrome-cdp",
+      "source": "./skills/chrome-cdp/",
+      "description": "Interact with live Chrome browser sessions via Chrome DevTools Protocol - screenshots, accessibility snapshots, JS eval, navigation, clicking, typing and more",
       "category": "development"
     }
   ]
