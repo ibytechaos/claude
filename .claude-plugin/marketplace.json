@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "chrome-cdp",
-      "source": "./skills/chrome-cdp/",
+      "source": "./plugins/chrome-cdp/",
       "description": "Interact with live Chrome browser sessions via Chrome DevTools Protocol - screenshots, accessibility snapshots, JS eval, navigation, clicking, typing and more",
       "category": "development"
     }

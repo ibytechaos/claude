@@ -11,16 +11,17 @@ Lightweight Chrome DevTools Protocol CLI. Connects directly to your live Chrome 
 - Chrome with remote debugging enabled: `chrome://inspect/#remote-debugging`
 - Node.js 22+
 
-**Usage:** See `skills/chrome-cdp/SKILL.md` for full command reference.
+**Usage:** See `plugins/chrome-cdp/skills/chrome-cdp/SKILL.md` for full command reference.
 
 ## Project Structure
 
 ```
-.claude-plugin/       # Plugin marketplace metadata
+.claude-plugin/                    # Marketplace metadata
   marketplace.json
-skills/               # Skill definitions
-  chrome-cdp/
-    SKILL.md          # Skill description and usage
-    scripts/
-      cdp.mjs         # CDP CLI implementation
+plugins/
+  chrome-cdp/                      # chrome-cdp plugin
+    .claude-plugin/plugin.json     # Plugin manifest
+    skills/chrome-cdp/
+      SKILL.md
+      scripts/cdp.mjs
 ```

@@ -1,0 +1,12 @@
+{
+  "name": "chrome-cdp",
+  "description": "Interact with live Chrome browser sessions via Chrome DevTools Protocol - screenshots, accessibility snapshots, JS eval, navigation, clicking, typing and more",
+  "version": "1.0.0",
+  "author": {
+    "name": "ibytechaos",
+    "email": "ibytechaos.ai@gmail.com"
+  },
+  "repository": "https://github.com/ibytechaos/claude",
+  "license": "MIT",
+  "keywords": ["skills", "chrome", "cdp", "browser", "devtools", "automation"]
+}

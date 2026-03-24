@@ -12,7 +12,7 @@
   ],
   "license": "MIT",
   "files": [
-    "skills/",
+    "plugins/",
     ".claude-plugin/"
   ]
 }

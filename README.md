@@ -21,7 +21,7 @@ claude plugin install chrome-cdp --scope project
 或者临时加载（不持久安装，仅当次会话）：
 
 ```bash
-claude --plugin-dir /path/to/claude/skills/chrome-cdp
+claude --plugin-dir /path/to/claude/plugins/chrome-cdp
 ```
 
 ## 包含的 Skills
@@ -85,18 +85,22 @@ scripts/cdp.mjs nav <target> "https://example.com"
 
 **坐标系说明：** 截图使用设备原始分辨率（图片像素 = CSS 像素 × DPR）。`clickxy` 等输入事件使用 CSS 像素。Retina 屏幕（DPR=2）需要将截图坐标除以 2。
 
-> 详细文档见 [skills/chrome-cdp/SKILL.md](skills/chrome-cdp/SKILL.md)
+> 详细文档见 [plugins/chrome-cdp/skills/chrome-cdp/SKILL.md](plugins/chrome-cdp/skills/chrome-cdp/SKILL.md)
 
 ## 项目结构
 
 ```
-.claude-plugin/           # 插件市场元数据
+.claude-plugin/                        # Marketplace 元数据
   marketplace.json
-skills/                   # 技能定义
-  chrome-cdp/
-    SKILL.md              # 技能描述和使用说明
-    scripts/
-      cdp.mjs             # CDP CLI 实现
+plugins/
+  chrome-cdp/                          # chrome-cdp 插件
+    .claude-plugin/
+      plugin.json                      # 插件清单
+    skills/
+      chrome-cdp/                      # 技能定义
+        SKILL.md                       # 技能描述和使用说明
+        scripts/
+          cdp.mjs                      # CDP CLI 实现
 ```
 
 ## 致谢
