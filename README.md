@@ -5,14 +5,23 @@
 ## 安装
 
 ```bash
-# 在 Claude Code 中添加此插件仓库
-claude plugin add github:ibytechaos/claude
+# 1. 添加为 marketplace 源
+claude plugin marketplace add https://github.com/ibytechaos/claude
+
+# 2. 安装插件
+claude plugin install chrome-cdp
 ```
 
-或者手动克隆：
+也可以指定安装范围（默认 user，可选 project / local）：
 
 ```bash
-git clone https://github.com/ibytechaos/claude.git ~/.claude/plugins/claude-skills
+claude plugin install chrome-cdp --scope project
+```
+
+或者临时加载（不持久安装，仅当次会话）：
+
+```bash
+claude --plugin-dir /path/to/claude/skills/chrome-cdp
 ```
 
 ## 包含的 Skills
