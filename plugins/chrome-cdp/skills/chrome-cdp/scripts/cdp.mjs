@@ -35,56 +35,14 @@ function sockPath(targetId) {
     : resolve(RUNTIME_DIR, `cdp-${targetId}.sock`);
 }
 
-function getWsUrl() {
-  const home = homedir();
-  // macOS: ~/Library/Application Support/<name>/DevToolsActivePort
-  const macBrowsers = [
-    'Google/Chrome', 'Google/Chrome Beta', 'Google/Chrome for Testing',
-    'Chromium', 'BraveSoftware/Brave-Browser', 'Microsoft Edge',
-  ];
-  // Linux: ~/.config/<name>/DevToolsActivePort
-  const linuxBrowsers = [
-    'google-chrome', 'google-chrome-beta', 'chromium',
-    'vivaldi', 'vivaldi-snapshot',
-    'BraveSoftware/Brave-Browser', 'microsoft-edge',
-  ];
-  // Linux Flatpak: ~/.var/app/<app-id>/config/<name>/DevToolsActivePort
-  const flatpakBrowsers = [
-    ['org.chromium.Chromium', 'chromium'],
-    ['com.google.Chrome', 'google-chrome'],
-    ['com.brave.Browser', 'BraveSoftware/Brave-Browser'],
-    ['com.microsoft.Edge', 'microsoft-edge'],
-    ['com.vivaldi.Vivaldi', 'vivaldi'],
-  ];
-  const candidates = [
-    process.env.CDP_PORT_FILE,
-    ...macBrowsers.flatMap(b => [
-      resolve(home, 'Library/Application Support', b, 'DevToolsActivePort'),
-      resolve(home, 'Library/Application Support', b, 'Default/DevToolsActivePort'),
-    ]),
-    ...linuxBrowsers.flatMap(b => [
-      resolve(home, '.config', b, 'DevToolsActivePort'),
-      resolve(home, '.config', b, 'Default/DevToolsActivePort'),
-    ]),
-    ...flatpakBrowsers.flatMap(([appId, name]) => [
-      resolve(home, '.var/app', appId, 'config', name, 'DevToolsActivePort'),
-      resolve(home, '.var/app', appId, 'config', name, 'Default/DevToolsActivePort'),
-    ]),
-    // Windows: %LOCALAPPDATA%/<name>/User Data/DevToolsActivePort
-    ...(IS_WINDOWS ? ['Google/Chrome', 'BraveSoftware/Brave-Browser', 'Microsoft/Edge'].flatMap(b => {
-      const base = process.env.LOCALAPPDATA || resolve(home, 'AppData/Local');
-      return [
-        resolve(base, b, 'User Data/DevToolsActivePort'),
-        resolve(base, b, 'User Data/Default/DevToolsActivePort'),
-      ];
-    }) : []),
-  ].filter(Boolean);
-  const portFile = candidates.find(p => existsSync(p));
-  if (!portFile) throw new Error('No DevToolsActivePort found. Enable remote debugging at chrome://inspect/#remote-debugging');
-  const lines = readFileSync(portFile, 'utf8').trim().split('\n');
-  if (lines.length < 2 || !lines[0] || !lines[1]) throw new Error(`Invalid DevToolsActivePort file: ${portFile}`);
+async function getWsUrl() {
   const host = process.env.CDP_HOST || '127.0.0.1';
-  return `ws://${host}:${lines[0]}${lines[1]}`;
+  const port = process.env.CDP_PORT || '9222';
+  const res = await fetch(`http://${host}:${port}/json/version`);
+  if (!res.ok) throw new Error(`Cannot connect to Chrome DevTools at ${host}:${port} — launch Chrome with --remote-debugging-port=${port}`);
+  const { webSocketDebuggerUrl } = await res.json();
+  if (!webSocketDebuggerUrl) throw new Error(`No webSocketDebuggerUrl in /json/version response from ${host}:${port}`);
+  return webSocketDebuggerUrl;
 }
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -488,7 +446,7 @@ async function runDaemon(targetId) {
 
   const cdp = new CDP();
   try {
-    await cdp.connect(getWsUrl());
+    await cdp.connect(await getWsUrl());
   } catch (e) {
     process.stderr.write(`Daemon: cannot connect to Chrome: ${e.message}\n`);
     process.exit(1);
@@ -787,7 +745,7 @@ async function main() {
 
   if (cmd === 'list' || cmd === 'ls') {
     const cdp = new CDP();
-    await cdp.connect(getWsUrl());
+    await cdp.connect(await getWsUrl());
     const pages = await getPages(cdp);
     cdp.close();
     writeFileSync(PAGES_CACHE, JSON.stringify(pages), { mode: 0o600 });
@@ -800,7 +758,7 @@ async function main() {
   if (cmd === 'open') {
     const url = args[0] || 'about:blank';
     const cdp = new CDP();
-    await cdp.connect(getWsUrl());
+    await cdp.connect(await getWsUrl());
     const { targetId } = await cdp.send('Target.createTarget', { url });
     // Refresh cache; new tab may not appear in getTargets immediately, so add it manually
     const pages = await getPages(cdp);
