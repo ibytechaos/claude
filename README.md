@@ -1,108 +1,53 @@
-# Claude Code Skills Collection
+# ibytechaos/claude — Claude Code 配置分发中心
 
-个人收集和封装的 Claude Code 技能插件集合。
+精品 skills/plugins/MCP 集中管理。从顶级开源项目精选组装 + 自有插件。
 
-## 安装
-
-```bash
-# 1. 添加为 marketplace 源
-claude plugin marketplace add https://github.com/ibytechaos/claude
-
-# 2. 安装插件
-claude plugin install chrome-cdp
-```
-
-也可以指定安装范围（默认 user，可选 project / local）：
+## 快速开始
 
 ```bash
-claude plugin install chrome-cdp --scope project
+git clone --recurse-submodules https://github.com/ibytechaos/claude.git
+cd claude
+make assemble    # 从 external/ 精选组装到 dist/
+make install     # 安装到 ~/.claude/skills/
 ```
 
-或者临时加载（不持久安装，仅当次会话）：
+## 包含内容
 
-```bash
-claude --plugin-dir /path/to/claude/plugins/chrome-cdp
-```
+### 自有插件
+- **chrome-cdp** — Chrome DevTools Protocol 调试
 
-## 包含的 Skills
+### 精选 Skills（from everything-claude-code 116k⭐）
+- tdd-workflow, security-review, code-review, verification-loop
+- agentic-engineering, continuous-learning, deep-research
+- rust-patterns, rust-testing, python-patterns, python-testing
+- api-design, architecture-decision-records, git-workflow
+- codebase-onboarding, repo-scan, search-first
 
-### chrome-cdp
+### 精选 Skills（from frontend-slides 11.6k⭐）
+- frontend-slides — HTML 演示文稿生成
 
-轻量级 Chrome DevTools Protocol CLI，让 Claude Code 能直接操控你本地正在运行的 Chrome 浏览器。
+### 精选 Agents（from everything-claude-code）
+- code-reviewer, security-reviewer, architect, planner
+- tdd-guide, performance-optimizer, rust-reviewer
 
-**核心能力：**
-- 连接你已打开的 Chrome 标签页（Gmail、GitHub、内部工具等，无需重新登录）
-- 截图、获取页面无障碍树、执行 JS、点击、输入文字、导航
-- 直接 WebSocket 连接，无 Puppeteer 依赖，支持 100+ 标签页
+### MCP 配置模板
+- 全局：notebooklm-mcp
+- 项目级：drawio（obsidian）
 
-**前置条件：**
-- Node.js 22+
-- Chrome 开启远程调试：打开 `chrome://inspect/#remote-debugging` 并开启开关
+## 命令
 
-**快速上手：**
-
-```bash
-# 列出所有打开的标签页
-scripts/cdp.mjs list
-
-# 截图（target 是 list 输出的 ID 前缀，如 6BE827FA）
-scripts/cdp.mjs shot <target>
-
-# 获取页面无障碍树（比 html 更适合理解页面结构）
-scripts/cdp.mjs snap <target>
-
-# 在页面中执行 JS
-scripts/cdp.mjs eval <target> "document.title"
-
-# 点击元素
-scripts/cdp.mjs click <target> "button.submit"
-
-# 在输入框输入文字（先 click 聚焦，再 type）
-scripts/cdp.mjs type <target> "hello world"
-
-# 导航到 URL
-scripts/cdp.mjs nav <target> "https://example.com"
-```
-
-**所有命令：**
-
-| 命令 | 说明 |
+| 命令 | 作用 |
 |------|------|
-| `list` | 列出所有打开的页面 |
-| `shot <target> [file]` | 截图（默认保存到运行时目录） |
-| `snap <target>` | 页面无障碍树快照 |
-| `eval <target> <expr>` | 执行 JavaScript |
-| `html <target> [selector]` | 获取页面/元素 HTML |
-| `nav <target> <url>` | 导航到 URL |
-| `net <target>` | 网络性能分析 |
-| `click <target> <selector>` | CSS 选择器点击 |
-| `clickxy <target> <x> <y>` | 坐标点击（CSS 像素） |
-| `type <target> <text>` | 输入文字（支持跨域 iframe） |
-| `loadall <target> <selector> [ms]` | 反复点击"加载更多"直到消失 |
-| `evalraw <target> <method> [json]` | 发送原始 CDP 命令 |
-| `open [url]` | 打开新标签页 |
-| `stop [target]` | 停止后台守护进程 |
+| `make assemble` | 从 external/ 精选组装到 dist/ |
+| `make install` | 安装 dist/ 到 ~/.claude/skills/ |
+| `make sync-project PROJECT=path` | 同步 MCP 到指定项目 |
+| `make list` | 列出已组装/已安装内容 |
+| `make update` | 更新 submodules |
+| `make clean` | 清理 dist/ |
 
-**坐标系说明：** 截图使用设备原始分辨率（图片像素 = CSS 像素 × DPR）。`clickxy` 等输入事件使用 CSS 像素。Retina 屏幕（DPR=2）需要将截图坐标除以 2。
+## 外部项目（submodule）
 
-> 详细文档见 [plugins/chrome-cdp/skills/chrome-cdp/SKILL.md](plugins/chrome-cdp/skills/chrome-cdp/SKILL.md)
-
-## 项目结构
-
-```
-.claude-plugin/                        # Marketplace 元数据
-  marketplace.json
-plugins/
-  chrome-cdp/                          # chrome-cdp 插件
-    .claude-plugin/
-      plugin.json                      # 插件清单
-    skills/
-      chrome-cdp/                      # 技能定义
-        SKILL.md                       # 技能描述和使用说明
-        scripts/
-          cdp.mjs                      # CDP CLI 实现
-```
-
-## 致谢
-
-- chrome-cdp skill 源自 [pasky/chrome-cdp-skill](https://github.com/pasky/chrome-cdp-skill)
+| 项目 | Stars | 用途 |
+|------|-------|------|
+| [everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 116k | 130+ skills, 30 agents, 60 commands |
+| [frontend-slides](https://github.com/zarazhangrui/frontend-slides) | 11.6k | HTML 演示文稿 |

@@ -1,17 +1,17 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude",
-  "description": "ibytechaos claude code plugins",
+  "description": "ibytechaos 精品 Claude Code 插件集 — 从 everything-claude-code、frontend-slides 等开源项目精选组装",
   "owner": {
-    "name": "Claude Code Commands Community",
+    "name": "ibytechaos",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "version": "2.0.0",
+  "version": "3.0.0",
   "plugins": [
     {
       "name": "chrome-cdp",
       "source": "./plugins/chrome-cdp/",
-      "description": "Interact with live Chrome browser sessions via Chrome DevTools Protocol - screenshots, accessibility snapshots, JS eval, navigation, clicking, typing and more",
+      "description": "Chrome DevTools Protocol — 截图、JS执行、点击、导航、无头浏览器调试",
       "category": "development"
     }
   ]

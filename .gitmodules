@@ -1,0 +1,6 @@
+[submodule "external/everything-claude-code"]
+	path = external/everything-claude-code
+	url = https://github.com/affaan-m/everything-claude-code.git
+[submodule "external/frontend-slides"]
+	path = external/frontend-slides
+	url = https://github.com/zarazhangrui/frontend-slides.git
