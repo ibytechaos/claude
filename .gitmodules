@@ -4,3 +4,15 @@
 [submodule "external/frontend-slides"]
 	path = external/frontend-slides
 	url = https://github.com/zarazhangrui/frontend-slides.git
+[submodule "external/claude-plugins-official"]
+	path = external/claude-plugins-official
+	url = https://github.com/anthropics/claude-plugins-official.git
+[submodule "external/claude-hud"]
+	path = external/claude-hud
+	url = https://github.com/jarrodwatts/claude-hud.git
+[submodule "external/ui-ux-pro-max-skill"]
+	path = external/ui-ux-pro-max-skill
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+[submodule "external/superpowers"]
+	path = external/superpowers
+	url = https://github.com/obra/superpowers.git

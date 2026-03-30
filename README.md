@@ -51,3 +51,14 @@ make install     # 安装到 ~/.claude/skills/
 |------|-------|------|
 | [everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 116k | 130+ skills, 30 agents, 60 commands |
 | [frontend-slides](https://github.com/zarazhangrui/frontend-slides) | 11.6k | HTML 演示文稿 |
+
+## 完整 Submodule 列表
+
+| # | 项目 | Stars | 用途 |
+|---|------|-------|------|
+| 1 | [claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | 15k | Anthropic 官方插件市场 |
+| 2 | [superpowers](https://github.com/obra/superpowers) | 123k | 方法论框架（TDD/调试/代码审查） |
+| 3 | [everything-claude-code](https://github.com/affaan-m/everything-claude-code) | 116k | 130+ skills, 30 agents |
+| 4 | [claude-hud](https://github.com/jarrodwatts/claude-hud) | 15k | 状态栏 HUD |
+| 5 | [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | — | UI/UX 设计 |
+| 6 | [frontend-slides](https://github.com/zarazhangrui/frontend-slides) | 11.6k | HTML 演示文稿 |
