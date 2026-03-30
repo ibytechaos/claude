@@ -1,18 +1,30 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude",
-  "description": "ibytechaos 精品 Claude Code 插件集 — 从 everything-claude-code、frontend-slides 等开源项目精选组装",
+  "description": "ibytechaos 精品集 — 聚合 everything-claude-code、superpowers、frontend-slides、chrome-cdp 等顶级开源项目，一个 marketplace 全装齐",
   "owner": {
     "name": "ibytechaos",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "version": "3.0.0",
+  "version": "3.1.0",
   "plugins": [
     {
       "name": "chrome-cdp",
       "source": "./plugins/chrome-cdp/",
       "description": "Chrome DevTools Protocol — 截图、JS执行、点击、导航、无头浏览器调试",
       "category": "development"
+    },
+    {
+      "name": "everything-claude-code",
+      "source": "./external/everything-claude-code/",
+      "description": "130+ skills, 30 agents, 60 commands — 全量透传 affaan-m/everything-claude-code",
+      "category": "development"
+    },
+    {
+      "name": "frontend-slides",
+      "source": "./external/frontend-slides/",
+      "description": "HTML 演示文稿生成 — 12 主题、动画、PDF 导出",
+      "category": "productivity"
     }
   ]
 }
