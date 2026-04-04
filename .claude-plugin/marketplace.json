@@ -1,12 +1,12 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude",
-  "description": "ibytechaos 精品集 — 聚合 everything-claude-code、superpowers、frontend-slides、chrome-cdp 等顶级开源项目，一个 marketplace 全装齐",
+  "description": "ibytechaos 精品集 — 聚合 everything-claude-code、superpowers、frontend-slides、chrome-cdp、context7、claude-hud、gitnexus、ui-ux-pro-max 等顶级开源项目，一个 marketplace 全装齐",
   "owner": {
     "name": "ibytechaos",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "version": "3.2.0",
+  "version": "4.0.0",
   "plugins": [
     {
       "name": "chrome-cdp",
@@ -16,20 +16,44 @@
     },
     {
       "name": "everything-claude-code",
-      "source": "./external/everything-claude-code/",
-      "description": "130+ skills, 30 agents, 60 commands — 全量透传 affaan-m/everything-claude-code",
+      "source": "./plugins/everything-claude-code/",
+      "description": "130+ skills, 30 agents, 60 commands — 全量 affaan-m/everything-claude-code",
+      "category": "development"
+    },
+    {
+      "name": "superpowers",
+      "source": "./plugins/superpowers/",
+      "description": "核心技能库 — TDD、调试、协作模式、计划执行、代码审查",
       "category": "development"
     },
     {
       "name": "frontend-slides",
-      "source": "./external/frontend-slides/",
+      "source": "./plugins/frontend-slides/",
       "description": "HTML 演示文稿生成 — 12 主题、动画、PDF 导出",
       "category": "productivity"
     },
     {
+      "name": "claude-hud",
+      "source": "./plugins/claude-hud/",
+      "description": "实时状态栏 HUD — 上下文健康、工具活动、agent 追踪、todo 进度",
+      "category": "development"
+    },
+    {
+      "name": "gitnexus",
+      "source": "./plugins/gitnexus/",
+      "description": "代码智能知识图谱 — 执行流追踪、影响分析、增强搜索 (20.6k stars)",
+      "category": "development"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "source": "./plugins/ui-ux-pro-max/",
+      "description": "AI 设计智能 — 67 UI 风格、161 调色板、57 字体组合、99 UX 准则",
+      "category": "design"
+    },
+    {
       "name": "context7",
       "source": "./plugins/context7/",
-      "description": "Context7 — 实时获取最新库文档、API 参考和代码示例，告别过时训练数据",
+      "description": "Context7 — 实时获取最新库文档、API 参考和代码示例，告别过时训练数据 (51k stars)",
       "category": "development"
     }
   ]

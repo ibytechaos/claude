@@ -1,0 +1,9 @@
+{
+  "name": "frontend-slides",
+  "description": "HTML presentation generator — 12 themes, animations, PDF export",
+  "version": "1.0.0",
+  "author": { "name": "zarazhangrui" },
+  "repository": "https://github.com/zarazhangrui/frontend-slides",
+  "license": "MIT",
+  "keywords": ["skills", "slides", "presentation", "html"]
+}
