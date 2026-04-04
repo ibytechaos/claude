@@ -19,3 +19,6 @@
 [submodule "external/gitnexus"]
 	path = external/gitnexus
 	url = https://github.com/abhigyanpatwari/GitNexus.git
+[submodule "external/context7"]
+	path = external/context7
+	url = https://github.com/upstash/context7.git

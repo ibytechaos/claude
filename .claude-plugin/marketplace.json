@@ -6,7 +6,7 @@
     "name": "ibytechaos",
     "email": "ibytechaos.ai@gmail.com"
   },
-  "version": "3.1.0",
+  "version": "3.2.0",
   "plugins": [
     {
       "name": "chrome-cdp",
@@ -25,6 +25,12 @@
       "source": "./external/frontend-slides/",
       "description": "HTML 演示文稿生成 — 12 主题、动画、PDF 导出",
       "category": "productivity"
+    },
+    {
+      "name": "context7",
+      "source": "./plugins/context7/",
+      "description": "Context7 — 实时获取最新库文档、API 参考和代码示例，告别过时训练数据",
+      "category": "development"
     }
   ]
 }
