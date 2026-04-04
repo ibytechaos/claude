@@ -114,10 +114,14 @@ list: ## 列出已组装/已安装的内容
 	@echo "=== MCP 模板 ==="
 	@ls mcp/projects/ 2>/dev/null | sed 's/^/  /'
 
-update: ## 更新 submodules
+update: ## 更新 submodules + 同步插件文件
 	git pull
 	git submodule update --remote --merge
 	@echo "✅ 子模块已更新"
+	@echo ""
+	@./scripts/sync-context7.sh
+	@echo ""
+	@echo "ℹ️  如有变更，请 git add + commit 提交同步结果"
 
 clean: ## 清理组装产物
 	rm -rf dist/

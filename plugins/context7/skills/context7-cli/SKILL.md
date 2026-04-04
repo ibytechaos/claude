@@ -5,13 +5,25 @@ description: Use the ctx7 CLI to fetch library documentation, manage AI coding s
 
 # ctx7 CLI
 
-The Context7 CLI fetches up-to-date library documentation, manages AI coding skills, and sets up Context7 MCP for your editor.
+The Context7 CLI does three things: fetches up-to-date library documentation, manages AI coding skills, and sets up Context7 MCP for your editor.
+
+Make sure the CLI is up to date before running commands:
 
 ```bash
 npm install -g ctx7@latest
-# Or run directly:
+```
+
+Or run directly without installing:
+
+```bash
 npx ctx7@latest <command>
 ```
+
+## What this skill covers
+
+- **[Documentation](references/docs.md)** — Fetch current docs for any library. Use when writing code, verifying API signatures, or when training data may be outdated.
+- **[Skills management](references/skills.md)** — Install, search, suggest, list, remove, and generate AI coding skills.
+- **[Setup](references/setup.md)** — Configure Context7 MCP for Claude Code / Cursor / OpenCode.
 
 ## Quick Reference
 
@@ -41,10 +53,12 @@ ctx7 whoami                           # Check current login status
 ctx7 login               # Opens browser for OAuth
 ctx7 login --no-browser  # Prints URL instead of opening browser
 ctx7 logout              # Clear stored tokens
-ctx7 whoami              # Show current login status
+ctx7 whoami              # Show current login status (name + email)
 ```
 
-Most commands work without login. Set an API key via environment variable to skip interactive login:
+Most commands work without login. Exceptions: `skills generate` always requires it; `ctx7 setup` requires it unless `--api-key` or `--oauth` is passed. Login also unlocks higher rate limits on docs commands.
+
+Set an API key via environment variable to skip interactive login entirely:
 
 ```bash
 export CONTEXT7_API_KEY=your_key
@@ -53,6 +67,6 @@ export CONTEXT7_API_KEY=your_key
 ## Common Mistakes
 
 - Library IDs require a `/` prefix — `/facebook/react` not `facebook/react`
-- Always run `ctx7 library` first
-- Repository format for skills is `/owner/repo`
+- Always run `ctx7 library` first — `ctx7 docs react "hooks"` will fail without a valid ID
+- Repository format for skills is `/owner/repo` — e.g., `ctx7 skills install /anthropics/skills`
 - `skills generate` requires login — run `ctx7 login` first

@@ -1,12 +1,7 @@
 {
-  "name": "context7",
-  "description": "Fetch up-to-date library documentation and code examples via Context7 — resolve library IDs, query docs, CLI tools",
-  "version": "1.0.0",
+  "name": "context7-plugin",
+  "description": "Upstash Context7 MCP server for up-to-date documentation lookup. Pull version-specific documentation and code examples directly from source repositories into your LLM context.",
   "author": {
-    "name": "upstash",
-    "url": "https://github.com/upstash/context7"
-  },
-  "repository": "https://github.com/upstash/context7",
-  "license": "MIT",
-  "keywords": ["skills", "context7", "documentation", "mcp", "library-docs", "api-reference"]
+    "name": "Upstash"
+  }
 }
